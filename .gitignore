@@ -1,0 +1,13 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# build / 환경 관련
+env/
+.venv/
+build/
+dist/
+*.spec
+
+# VSCode
+.vscode/
