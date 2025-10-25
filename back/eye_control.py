@@ -46,7 +46,7 @@ class EyeControl:
         if dist < self.dwell_tolerance:
             if now - self.last_time > self.dwell_threshold:
                 pyautogui.click()
-                print("🖱 Dwell Click!")
+                print("Dwell Click!")
                 self.last_time = now
         else:
             self.last_pos = (x, y)
@@ -79,7 +79,7 @@ class EyeControl:
                 if not calibrated_center and time.time() - start >= 2.0:
                     self.ref_x, self.ref_y = x, y
                     calibrated_center = True
-                    print("✅ 중앙 보정 완료")
+                    print("중앙 보정 완료")
                     continue
 
                 if calibrated_center:

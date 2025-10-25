@@ -29,12 +29,12 @@ class VoiceControl:
         if not text:
             return
 
-        print(f"🎧 인식된 명령: {text}")
+        print(f"인식된 명령: {text}")
 
         # ====== 종료 명령 ======
         if "멈춰" in text or "중지" in text or "정지" in text or "stop" in text:
             if self.controller:
-                print("🛑 음성 명령으로 시스템 종료")
+                print("음성 명령으로 시스템 종료")
                 self.controller.stop_eye()
                 self.controller.stop_voice()
             return
@@ -43,31 +43,31 @@ class VoiceControl:
         if "클릭" in text or "click" in text:
             if "더블" in text or "double" in text:
                 pyautogui.doubleClick()
-                print("🖱 음성 명령: 더블클릭 실행")
+                print("음성 명령: 더블클릭 실행")
             else:
                 pyautogui.click()
-                print("🖱 음성 명령: 클릭 실행")
+                print("음성 명령: 클릭 실행")
 
         # ====== 엔터 ======
         elif "엔터" in text or "enter" in text:
             pyautogui.press("enter")
-            print("⌨️ 음성 명령: 엔터 실행")
+            print("음성 명령: 엔터 실행")
 
         # ====== 스크롤 ======
         elif "위" in text or "올려" in text:
             pyautogui.scroll(500)
-            print("🖱 스크롤 위로")
+            print("스크롤 위로")
         elif "아래" in text or "내려" in text:
             pyautogui.scroll(-500)
-            print("🖱 스크롤 아래로")
+            print("스크롤 아래로")
 
         # ====== 기타 텍스트 입력 ======
         else:
             pyautogui.typewrite(text + " ")
-            print(f"💬 입력된 음성 텍스트: {text}")
+            print(f"입력된 음성 텍스트: {text}")
 
     def run(self):
-        print("🎤 음성 인식 시작 — 클릭, 엔터, 스크롤, 멈춰 명령 지원")
+        print("음성 인식 시작 — 클릭, 엔터, 스크롤, 멈춰 명령 지원")
         self._ensure_model()
         self.running = True
         try:

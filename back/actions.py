@@ -23,7 +23,7 @@ class Actions:
         if distance < tolerance:
             if now - self.last_time > threshold:
                 pyautogui.click()
-                print("🖱 Dwell Click!")
+                print("Dwell Click!")
                 self.last_time = now
         else:
             self.last_x, self.last_y = x, y

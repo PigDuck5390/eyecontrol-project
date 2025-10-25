@@ -13,7 +13,7 @@ class Controller:
         if self.eye_thread is None or not self.eye_thread.is_alive():
             self.eye_thread = threading.Thread(target=self.eye.run, daemon=True)
             self.eye_thread.start()
-            print("👁 EyeControl 실행됨")
+            print("EyeControl 실행됨")
 
     def stop_eye(self):
         self.eye.stop()
@@ -22,7 +22,7 @@ class Controller:
         if self.voice_thread is None or not self.voice_thread.is_alive():
             self.voice_thread = threading.Thread(target=self.voice.run, daemon=True)
             self.voice_thread.start()
-            print("🎤 VoiceControl 실행됨")
+            print("VoiceControl 실행됨")
 
     def stop_voice(self):
         self.voice.stop()
