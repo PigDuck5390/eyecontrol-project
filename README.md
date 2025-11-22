@@ -4,10 +4,9 @@ anaconda 설치 후 ananconda prompt에서 진행
 
 1. git clone https://github.com/PigDuck5390/eyecontrol-project.git
 2. cd ../eyecontrol-project
-3. bash
-conda create -n env python=3.10
-conda activate env
-4. pip install -r requirements.txt
+3. conda create -n env python=3.10
+4. conda activate env
+5. pip install -r requirements.txt
 
 
 아래 링크에서 Vosk 한국어 모델 (v0.22) 다운로드
