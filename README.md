@@ -4,7 +4,7 @@ anaconda 설치 후 ananconda prompt에서 진행
 
 1. git clone https://github.com/PigDuck5390/eyecontrol-project.git
 2. cd ../eyecontrol-project
-3. ```bash
+3. bash
 conda create -n env python=3.10
 conda activate env
 4. pip install -r requirements.txt
