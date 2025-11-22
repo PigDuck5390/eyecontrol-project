@@ -14,9 +14,7 @@ conda activate env
 https://alphacephei.com/vosk/models
 
 압축을 풀고 model/ 폴더에 넣기(model폴더 생성)
-eyecontrol-project/
-└── model/
-    └── vosk-model-small-ko-0.22/
+eyecontrol-project/model/vosk-model-small-ko-0.22/
 
 
 ## 실행
