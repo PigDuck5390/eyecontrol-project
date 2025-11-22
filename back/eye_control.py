@@ -26,9 +26,6 @@ class EyeControl:
 
         self.blink_threshold = 0.018
         self.blink_start_time = None
-        self.blink_count = 0
-        self.blink_interval = 0.45
-        self.clicked = False
 
         self.prev_points = []
         self.overlay = None
@@ -69,8 +66,8 @@ class EyeControl:
                 nx = nose[0] - self.ref_x
                 ny = nose[1] - self.ref_y
 
-                gx = (nx)
-                gy = (ny)
+                gx = nx
+                gy = ny
 
                 if abs(gx) < self.deadzone: gx = 0
                 if abs(gy) < self.deadzone: gy = 0
@@ -94,27 +91,19 @@ class EyeControl:
                 pyautogui.moveTo(fx, fy)
                 self.pcX, self.pcY = fx, fy
 
+                ################ CLICK (롱블링크) ################
                 eye_height = face[159].y * h - face[145].y * h
                 now = time.time()
 
                 if eye_height < self.blink_threshold:
                     if self.blink_start_time is None:
                         self.blink_start_time = now
-                        self.blink_count = 1
-                    elif now - self.blink_start_time <= self.blink_interval:
-                        self.blink_count += 1
-                else:
-                    if self.blink_count >= 2 and not self.clicked:
+                    elif now - self.blink_start_time > 0.28:
                         pyautogui.click()
-                        self.clicked = True
-                        if self.overlay:
-                            self.overlay.trigger_click_effect()
-                    elif eye_height >= self.blink_threshold:
-                        self.clicked = False
-
-                    if self.blink_start_time and now - self.blink_start_time > self.blink_interval:
-                        self.blink_count = 0
                         self.blink_start_time = None
+                else:
+                    self.blink_start_time = None
+                ##################################################
 
         cap.release()
         cv2.destroyAllWindows()
