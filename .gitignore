@@ -11,3 +11,5 @@ dist/
 
 # VSCode
 .vscode/
+
+model/
